@@ -3,7 +3,10 @@
   // Config: retirement target
   // Today: 2025-11-29; retiring in 91 days => target is 2026-02-28
   // Adjust if you want a different date.
-  const targetDate = new Date('2026-02-28T00:00:00');
+    // Use India Standard Time (IST, UTC+05:30) regardless of viewer locale
+    // Example final date at midnight IST:
+    // const targetDate = new Date('2026-02-28T00:00:00+05:30');
+    const targetDate = new Date('2026-02-28T00:00:00+05:30');
   const elDays = document.getElementById('days');
   const elHours = document.getElementById('hours');
   const elMinutes = document.getElementById('minutes');
