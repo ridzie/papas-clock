@@ -25,4 +25,9 @@
   }
 
   document.addEventListener('retirement:progress', handleProgress);
+
+  // On retirement day, show sunglasses and hat via celebrate class
+  document.addEventListener('retirement:day', function(){
+    dad.classList.add('celebrate');
+  });
 })();

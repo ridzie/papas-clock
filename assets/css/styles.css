@@ -65,11 +65,28 @@ main{ max-width: 920px; margin: 0 auto; padding: 1rem; }
 .eye{ width: 14px; height: 14px; background: #263238; border-radius: 50%; animation: blink 6s infinite; }
 @keyframes blink{ 0%, 92%, 100% { transform: scaleY(1); } 94% { transform: scaleY(0.1); } }
 .smile{ position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: 44px; height: 22px; border-bottom: 4px solid #e57373; border-radius: 0 0 44px 44px; }
+/* Simple cartoon hair strands */
+/* (removed) hair strands */
+/* Glasses by default; become sunglasses on celebration */
+.sunglasses{ position: absolute; top: 42%; left: 50%; transform: translateX(-50%); width: 90px; height: 28px; display: block; }
+/* Regular glasses look */
+.sunglasses::before, .sunglasses::after{ content: ""; position: absolute; top: 0; width: 36px; height: 24px; background: rgba(255,255,255,0.4); border: 2px solid #263238; border-radius: 12px; box-shadow: inset 0 0 6px rgba(0,0,0,0.12); }
+.sunglasses::before{ left: 0; }
+.sunglasses::after{ right: 0; }
+/* Bridge */
+.sunglasses::marker{ display: none; }
+.sunglasses::before{ box-shadow: inset 0 0 6px rgba(0,0,0,0.12); }
+.sunglasses::after{ box-shadow: inset 0 0 6px rgba(0,0,0,0.12); }
+/* On celebration, lenses go dark (sunglasses) */
+.dad.celebrate .sunglasses::before,
+.dad.celebrate .sunglasses::after{ background: #111; border-color: #111; box-shadow: inset 0 0 8px rgba(255,255,255,0.15); }
 
 /* Outfits layered, fade between */
 .outfit{ position: absolute; left: 50%; transform: translateX(-50%); top: 120px; width: 160px; height: 140px; transition: opacity 1.2s ease, filter 1.2s ease; }
 .outfit-office{ opacity: 1; }
 .outfit-vacation{ opacity: 0; filter: saturate(0.8); }
+/* Ensure only one outfit is visually present */
+/* (reverted) do not force outfit swap */
 /* Office */
 .shirt{ width: 100%; height: 70px; background: #e0f2f1; border-radius: 12px 12px 6px 6px; box-shadow: inset 0 -6px 0 #b2dfdb; }
 .tie{ width: 16px; height: 70px; background: linear-gradient(#ef5350, #b71c1c); position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-radius: 0 0 8px 8px; }
@@ -92,8 +109,15 @@ main{ max-width: 920px; margin: 0 auto; padding: 1rem; }
 /* State classes controlled by JS */
 .dad.vacation .outfit-office{ opacity: 0; filter: saturate(0.6); }
 .dad.vacation .outfit-vacation{ opacity: 1; filter: saturate(1); }
-.dad.vacation .briefcase{ opacity: 0; }
-.dad.vacation .ukulele{ opacity: 1; }
+/* (reverted) remove forced briefcase/ukulele changes */
+/* Straw hat (shown on retirement day) */
+.hat{ position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 120px; height: 40px; display: none; }
+.hat::before{ content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 26px; background: #d2b48c; border-radius: 8px; box-shadow: 0 2px 0 rgba(0,0,0,.12); }
+.hat::after{ content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 120px; height: 12px; background: #e7c999; border-radius: 12px; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+.dad.celebrate .hat{ display: block; }
+
+/* Beach vibe (enabled on retirement day) */
+/* (reverted) remove beach props styling */
 
 /* Countdown text transition colors */
 .countdown.soon .time-box span{ color: #ff8a65; }
