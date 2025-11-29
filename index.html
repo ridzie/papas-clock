@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Papa's Retirement Countdown</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Countdown to Papa's Retirement</h1>
+    <p class="subtitle">From office hero to vacation legend!</p>
+  </header>
+
+  <main>
+    <section class="countdown">
+      <div class="time-box"><span id="days">--</span><label>Days</label></div>
+      <div class="time-box"><span id="hours">--</span><label>Hours</label></div>
+      <div class="time-box"><span id="minutes">--</span><label>Minutes</label></div>
+      <div class="time-box"><span id="seconds">--</span><label>Seconds</label></div>
+    </section>
+
+    <section class="character">
+      <div class="dad" aria-label="Cute dad animation">
+        <div class="dad-body">
+          <div class="face">
+            <div class="eyes">
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+            </div>
+            <div class="smile"></div>
+          </div>
+          <div class="outfit outfit-office">
+            <div class="shirt"></div>
+            <div class="tie"></div>
+            <div class="pants"></div>
+          </div>
+          <div class="outfit outfit-vacation">
+            <div class="hawaii-shirt"></div>
+            <div class="shorts"></div>
+            <div class="flipflops"></div>
+          </div>
+        </div>
+        <div class="props">
+          <div class="briefcase"></div>
+          <div class="ukulele"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="message">
+      <p id="statusText">Keep going, Papa! Vacation mode loading…</p>
+    </section>
+
+    <canvas id="fireworks" class="fireworks" aria-hidden="true"></canvas>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with ❤️ for Papa</p>
+  </footer>
+
+  <script src="assets/js/countdown.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/fireworks.js"></script>
+</body>
+</html>

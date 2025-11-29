@@ -1,0 +1,111 @@
+/* Styles for Papa's Retirement Countdown */
+:root{
+  --bg: #f7fbff;
+  --text: #1f2d3d;
+  --accent: #ff6b6b;
+  --accent-2: #4ecdc4;
+  --box: #ffffff;
+  --shadow: rgba(0,0,0,0.08);
+}
+html, body { height: 100%; }
+body{
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #e9f6ff 0%, #fff 100%);
+  color: var(--text);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.site-header, .site-footer{
+  text-align: center;
+  padding: 1.25rem;
+}
+.site-header h1{
+  font-weight: 800;
+  font-size: 2rem;
+}
+.subtitle{ color: #546e7a; margin-top: .25rem; }
+
+main{ max-width: 920px; margin: 0 auto; padding: 1rem; }
+.countdown{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 1rem auto 1.5rem;
+}
+.time-box{
+  background: var(--box);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px var(--shadow);
+  padding: 1rem;
+  text-align: center;
+}
+.time-box span{
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.time-box label{
+  font-size: .9rem;
+  color: #607d8b;
+}
+
+.character{ display: grid; place-items: center; margin: 1rem 0; }
+.dad{
+  position: relative;
+  width: 240px; height: 280px;
+}
+.dad-body{ position: relative; width: 100%; height: 100%; }
+.face{
+  width: 120px; height: 120px; border-radius: 50%;
+  background: #ffe0b2; margin: 0 auto; position: relative;
+  box-shadow: 0 6px 24px var(--shadow);
+}
+.eyes{ position: absolute; top: 44%; left: 50%; transform: translateX(-50%); width: 80px; display: flex; justify-content: space-between; }
+.eye{ width: 14px; height: 14px; background: #263238; border-radius: 50%; animation: blink 6s infinite; }
+@keyframes blink{ 0%, 92%, 100% { transform: scaleY(1); } 94% { transform: scaleY(0.1); } }
+.smile{ position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); width: 44px; height: 22px; border-bottom: 4px solid #e57373; border-radius: 0 0 44px 44px; }
+
+/* Outfits layered, fade between */
+.outfit{ position: absolute; left: 50%; transform: translateX(-50%); top: 120px; width: 160px; height: 140px; transition: opacity 1.2s ease, filter 1.2s ease; }
+.outfit-office{ opacity: 1; }
+.outfit-vacation{ opacity: 0; filter: saturate(0.8); }
+/* Office */
+.shirt{ width: 100%; height: 70px; background: #e0f2f1; border-radius: 12px 12px 6px 6px; box-shadow: inset 0 -6px 0 #b2dfdb; }
+.tie{ width: 16px; height: 70px; background: linear-gradient(#ef5350, #b71c1c); position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-radius: 0 0 8px 8px; }
+.pants{ width: 100%; height: 70px; background: #607d8b; border-radius: 6px; margin-top: 0.5rem; }
+/* Vacation */
+.hawaii-shirt{ width: 100%; height: 80px; border-radius: 14px; background:
+  radial-gradient(circle at 20% 30%, #fff 6px, transparent 6px) 0 0/40px 40px,
+  radial-gradient(circle at 70% 60%, #fff 6px, transparent 6px) 20px 20px/40px 40px,
+  linear-gradient(135deg, #ffd166, #06d6a0);
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,.06);
+}
+.shorts{ width: 100%; height: 60px; background: #90caf9; border-radius: 10px; margin-top: .25rem; }
+.flipflops{ position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); width: 80px; height: 16px; background: #4ecdc4; border-radius: 16px; }
+
+/* Props */
+.props{ position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.briefcase{ position: absolute; left: 10%; bottom: 28%; width: 44px; height: 32px; background: #8d6e63; border-radius: 4px; box-shadow: 0 4px 0 #6d4c41; }
+.ukulele{ position: absolute; right: 8%; bottom: 24%; width: 18px; height: 60px; background: #d4a373; border-radius: 8px; transform-origin: top; transform: rotate(-10deg); box-shadow: 0 2px 0 #a26d3f; opacity: 0; transition: opacity 1s ease; }
+
+/* State classes controlled by JS */
+.dad.vacation .outfit-office{ opacity: 0; filter: saturate(0.6); }
+.dad.vacation .outfit-vacation{ opacity: 1; filter: saturate(1); }
+.dad.vacation .briefcase{ opacity: 0; }
+.dad.vacation .ukulele{ opacity: 1; }
+
+/* Countdown text transition colors */
+.countdown.soon .time-box span{ color: #ff8a65; }
+.countdown.very-soon .time-box span{ color: #ff5252; }
+
+/* Fireworks canvas */
+.fireworks{ position: fixed; inset: 0; pointer-events: none; width: 100%; height: 100%; display: none; }
+.fireworks.active{ display: block; }
+
+.message{ text-align: center; margin: 1rem 0; }
+#statusText{ font-size: 1.1rem; color: #37474f; }
+
+@media (max-width: 720px){
+  .countdown{ grid-template-columns: repeat(2, 1fr); }
+}
