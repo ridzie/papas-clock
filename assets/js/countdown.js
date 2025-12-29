@@ -6,7 +6,7 @@
     // Use India Standard Time (IST, UTC+05:30) regardless of viewer locale
     // Example final date at midnight IST:
     // const targetDate = new Date('2026-02-28T00:00:00+05:30');
-    const targetDate = new Date('2026-02-28T00:00:00+05:30');
+    const targetDate = new Date('2026-03-01T00:00:00+05:30');
   const elDays = document.getElementById('days');
   const elHours = document.getElementById('hours');
   const elMinutes = document.getElementById('minutes');
